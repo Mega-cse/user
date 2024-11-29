@@ -10,8 +10,8 @@ const UserList = ({ users, onDelete }) => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
+            {/* <th>Last Name</th> */}
             <th>Email</th>
             <th>Department</th>
             <th>Actions</th>
@@ -21,8 +21,8 @@ const UserList = ({ users, onDelete }) => {
           {users.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name.split(' ')[0]}</td>
-              <td>{user.name.split(' ')[1]}</td>
+              <td>{user.name}</td>
+              {/* <td>{user.name.split(' ')[1]}</td> */}
               <td>{user.email}</td>
               <td>{user.department || 'General'}</td>
               <td>

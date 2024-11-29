@@ -30,10 +30,12 @@ function App() {
   // Handle saving a user (whether adding or editing)
   const handleSaveUser = (user) => {
     setUsers((prev) => {
+      // If the user already exists (i.e. editing), replace the user
       const existingUserIndex = prev.findIndex((u) => u.id === user.id);
       if (existingUserIndex >= 0) {
         return prev.map((u) => (u.id === user.id ? user : u));
       } else {
+        // If it's a new user, add to the list
         return [...prev, user];
       }
     });
@@ -58,7 +60,7 @@ function App() {
             />
             <Route
               path="/users/add"
-              element={<UserForm onSave={handleSaveUser} />}
+              element={<UserForm onSave={handleSaveUser} users={users} />}
             />
             <Route
               path="/users/edit/:id"
